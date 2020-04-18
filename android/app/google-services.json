@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "148237862009",
+    "firebase_url": "https://myproject-4a8d2.firebaseio.com",
+    "project_id": "myproject-4a8d2",
+    "storage_bucket": "myproject-4a8d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148237862009:android:296b48d0e2d6b61d3f80a8",
+        "android_client_info": {
+          "package_name": "com.example.music_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148237862009-mdgglj58rprj1vaddltp03voeet6sud7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLmHhOBBD9zKR3uwZWCvz_AsQ-bHXJlPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148237862009-mdgglj58rprj1vaddltp03voeet6sud7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
