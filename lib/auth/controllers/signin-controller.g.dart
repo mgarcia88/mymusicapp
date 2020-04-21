@@ -96,11 +96,28 @@ mixin _$SigninController on _SigninControllerBase, Store {
     }, _$firebaseUserAtom, name: '${_$firebaseUserAtom.name}_set');
   }
 
-  final _$setFirebaseUserAsyncAction = AsyncAction('setFirebaseUser');
+  final _$isLoadingAtom = Atom(name: '_SigninControllerBase.isLoading');
 
   @override
-  Future setFirebaseUser() {
-    return _$setFirebaseUserAsyncAction.run(() => super.setFirebaseUser());
+  bool get isLoading {
+    _$isLoadingAtom.context.enforceReadPolicy(_$isLoadingAtom);
+    _$isLoadingAtom.reportObserved();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.context.conditionallyRunInAction(() {
+      super.isLoading = value;
+      _$isLoadingAtom.reportChanged();
+    }, _$isLoadingAtom, name: '${_$isLoadingAtom.name}_set');
+  }
+
+  final _$signinWithGoogleAsyncAction = AsyncAction('signinWithGoogle');
+
+  @override
+  Future<dynamic> signinWithGoogle() {
+    return _$signinWithGoogleAsyncAction.run(() => super.signinWithGoogle());
   }
 
   final _$_SigninControllerBaseActionController =
@@ -129,7 +146,7 @@ mixin _$SigninController on _SigninControllerBase, Store {
   @override
   String toString() {
     final string =
-        'username: ${username.toString()},usernameIsValid: ${usernameIsValid.toString()},password: ${password.toString()},passwordIsValid: ${passwordIsValid.toString()},firebaseUser: ${firebaseUser.toString()}';
+        'username: ${username.toString()},usernameIsValid: ${usernameIsValid.toString()},password: ${password.toString()},passwordIsValid: ${passwordIsValid.toString()},firebaseUser: ${firebaseUser.toString()},isLoading: ${isLoading.toString()}';
     return '{$string}';
   }
 }

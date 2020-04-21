@@ -49,12 +49,10 @@ abstract class _SigninControllerBase with Store {
     this.password = value;
   }
 
-  @action
   setFirebaseUser() async {
     this.firebaseUser = await this._firebaseService.handleSignIn();
   }
 
-  @action
   setLoading(bool value) {
     this.isLoading = value;
   }
@@ -81,16 +79,17 @@ abstract class _SigninControllerBase with Store {
     return null;
   }
 
-  signinWithGoogle() async {
+  @action
+  Future signinWithGoogle() async {
     this.setLoading(true);
     await this.setFirebaseUser();
     this.setLoading(false);
     if (this.firebaseUser != null && this.firebaseUser.displayName != "") {
       return this
           ._navigationService
-          .pushNamed(ArtistsPage.route, this.firebaseUser);
+          .pushNamed(ArtistsPage.route, null);
     } else {
-      return null;
+      return Future.value(null);
     }
   }
 }

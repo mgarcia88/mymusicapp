@@ -24,4 +24,8 @@ class FirebaseService {
       return null;
     }
   }
+
+  Future<FirebaseUser> getCurrentUser(){
+    return FirebaseAuth.instance.currentUser();
+  }
 }

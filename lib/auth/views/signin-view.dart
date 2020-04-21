@@ -18,8 +18,7 @@ class SigninView extends StatelessWidget {
           height: size.height,
           padding: EdgeInsets.all(20),
           child: Observer(builder: (_) {
-
-            if (this._signinController.isLoading == true){
+            if (this._signinController.isLoading) {
               return Center(child: CircularProgressIndicator());
             }
 
@@ -27,7 +26,7 @@ class SigninView extends StatelessWidget {
                 child: ListView(
               children: <Widget>[
                 SizedBox(height: size.height / 5),
-                this._textFormField("Seu login", null, () => null),
+                this._textFormField("Seu login",this._signinController.changeUsername, this._signinController.validateUsername),
                 SizedBox(height: size.height / 15),
                 this._textFormField("Sua senha", null, () => null),
                 SizedBox(height: size.height / 15),
@@ -61,19 +60,6 @@ class SigninView extends StatelessWidget {
         border: OutlineInputBorder(),
         labelText: labelText,
         errorText: validate == null ? null : validate(),
-        //suffixIcon: _controller.nameIsValid
-        //? Icon(
-        //  Icons.check_circle,
-        //color: Colors.green,
-        //)
-        //: null,
-        enabledBorder: OutlineInputBorder(
-            //borderSide: BorderSide(
-            //color: _controller.nameIsValid
-            //? Colors.green
-            //: !_controller.nameIsValid ? Colors.red : Colors.blue,
-            //width: 2.0),
-            ),
       ),
     );
   }
