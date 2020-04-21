@@ -24,6 +24,10 @@ dependencies:
   flutter_mobx: ^1.0.1
   firebase_messaging: ^6.0.13
   get_it: ^4.0.1
+  google_sign_in: ^4.4.3
+  flutter_auth_buttons: ^0.8.0
+  firebase_core: ^0.4.4+3
+  firebase_auth: ^0.16.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

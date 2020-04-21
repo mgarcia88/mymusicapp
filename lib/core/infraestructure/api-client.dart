@@ -44,7 +44,7 @@ class ApiClient {
       "Content-Type": "application/x-www-form-urlencoded",
       "Origin": "http://bvc-client-device.com",
       "Authorization":
-          "Bearer BQDakKnPLwMAOuAJhhs_w4_MiHSKm4j2sRr-6IZVqXnDMUbr3R96CP_Ud-a6b-Ud_-vklRI500V7jLoPLVKL7aUTYt9r1YtTPo_JLJCuXYKEybMo4rX_5FVsorK7HYmLFFeg5HWVjzRMhVR7253bLbcAyMXq1HioBViYKPLKzFQZdowk"
+          "Bearer BQAifp5AKDOWBXWPwbUQIJxtxfr9jTgY-XLUEMr5W7VDKq_5ywLQviMbuz_Rlng7ojcYtAvKsutvsNP1hHaw4_djJ3WABwe7v769ok1utPZXooQQ5h-FTR8u4IsZ0MOtVrS0YC_PPt8jFZcbRc0G1yHQZJOVYotL5HFF0Av-OSd_aGI_"
     };
 
     return content;

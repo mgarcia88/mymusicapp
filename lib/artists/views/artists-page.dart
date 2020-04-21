@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:music_app/artists/controllers/artists-controller.dart';
-import 'package:music_app/artists/views/artist-albuns-page.dart';
 import 'package:music_app/core/commom/commom-styles.dart';
 import 'package:music_app/core/infraestructure/firebase.dart';
 
@@ -29,8 +28,9 @@ class _ArtistsPageState extends State<ArtistsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Página do artista"),
+        title: Text("Artistas"),
         centerTitle: true,
+        leading: Icon(Icons.menu),
       ),
       body: Container(
           padding: EdgeInsets.all(10),
