@@ -1,18 +1,15 @@
 import 'package:mobx/mobx.dart';
+import 'package:music_app/core/services/firestore-service.dart';
 part 'new-artists-controller.g.dart';
 
 class NewArtistsController  = _NewArtistsController with _$NewArtistsController;
 
 abstract class _NewArtistsController with Store{
-  @observable
-  String name;
 
-  @observable
-  bool nameIsValid;
+  FirestoreService _firestoreService;
 
-  @action
-  changeName(String value){
-    this.name = value;
+  _NewArtistsController(){
+    this._firestoreService = new FirestoreService();
   }
 
   @observable
@@ -26,19 +23,6 @@ abstract class _NewArtistsController with Store{
     this.code = value;
   }
 
-  String validateName(){
-    if (this.name == null || this.name == ""){
-      this.nameIsValid = false;
-      return "Campo obrigatório";
-    }
-    else if (this.name.length < 3){
-      this.nameIsValid = false;
-      return "Nome inválido";
-    }
-    this.nameIsValid = true;
-    return null;
-  }
-
   String validateCode(){
     if (this.code == null || this.code == ""){
       this.codeIsValid = false;
@@ -47,5 +31,10 @@ abstract class _NewArtistsController with Store{
    
     this.codeIsValid = true;
     return null;
+  }
+
+  @action
+  addNewArtist() async {
+     await this._firestoreService.addNewDocument(this.code);
   }
 }

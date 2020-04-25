@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/artists/views/artist-albuns-page.dart';
 import 'package:music_app/artists/views/artists-page.dart';
+import 'package:music_app/artists/views/new-artist-page.dart';
 import 'package:music_app/auth/views/signin-view.dart';
 import 'package:music_app/core/services/navigator-service.dart';
 
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
     var routes = {
       ArtistsPage.route: (context) => ArtistsPage(),
       ArtistAlbunsPage.route: (context) => ArtistAlbunsPage(ModalRoute.of(context).settings.arguments),
-      SigninView.route: (context) => SigninView()
+      SigninView.route: (context) => SigninView(),
+      NewArtistPage.route:(context) => NewArtistPage()
     };
 
     return routes;

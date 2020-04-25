@@ -37,18 +37,21 @@ class Menu extends StatelessWidget {
                   );
                 }),
                 ListTile(
+                  onTap: () => this._menuController.goToPage("/new-artists"),
                   leading: Icon(Icons.add_box),
                   title: CommomStyles.title(
                       text: "Cadastro de artistas", size: 16, color: 0xFF000000, weight: FontWeight.bold),
                 ),
                 Divider(),
                 ListTile(
+                  onTap: () => this._menuController.goToPage("/artists"),
                   leading: Icon(Icons.person),
                   title: CommomStyles.title(
                       text: "Artistas", size: 16, color: 0xFF000000, weight: FontWeight.bold),
                 ),
                 Divider(),
                 ListTile(
+                  onTap: () => this._menuController.logout(),
                   leading: Icon(Icons.gesture),
                   title: CommomStyles.title(
                       text: "Sair", size: 16, color: 0xFF000000, weight: FontWeight.bold),

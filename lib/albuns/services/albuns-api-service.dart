@@ -2,12 +2,16 @@ import 'dart:convert';
 import 'package:music_app/albuns/model/albuns-model.dart';
 import 'package:music_app/artists/models/artist-mode.dart';
 import 'package:music_app/core/infraestructure/api-client.dart';
+import 'package:music_app/core/services/firestore-service.dart';
 
 class AlbunsApiService {
   ApiClient _posApiClient;
 
+  FirestoreService _firestoreService;
+
   AlbunsApiService() {
     _posApiClient = new ApiClient();
+    _firestoreService = new FirestoreService();
   }
 
   Future<List<Albuns>> getArtistAlbunsByArtistId(String idArtist) async {
@@ -33,8 +37,7 @@ class AlbunsApiService {
   }
 
   Future<List<Artists>> getArtistByArtistId() async {
-    final data = "2mGlvfts36oW5O7KKPzfLk,1w5Kfo2jwwIPruYS2UWh56";
-    //1w5Kfo2jwwIPruYS2UWh56,
+    final data = await this._firestoreService.getCollectionByName("artistas");
 
     var response = await _posApiClient.get("artists?ids=", data);
 
@@ -45,10 +48,11 @@ class AlbunsApiService {
     }
 
     List<Artists> artist = List<Artists>();
-    print(jsonContent["artists"]);
 
     for (Map item in jsonContent["artists"]) {
-      artist.add(Artists.fromJson(item));
+      if (item != null) {
+        artist.add(Artists.fromJson(item));
+      }
     }
 
     return artist;

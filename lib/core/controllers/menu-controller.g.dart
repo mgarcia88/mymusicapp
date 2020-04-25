@@ -35,6 +35,19 @@ mixin _$MenuController on _MenuControllerBase, Store {
         .run(() => super.getCurrentFirebaseUser());
   }
 
+  final _$_MenuControllerBaseActionController =
+      ActionController(name: '_MenuControllerBase');
+
+  @override
+  void logout() {
+    final _$actionInfo = _$_MenuControllerBaseActionController.startAction();
+    try {
+      return super.logout();
+    } finally {
+      _$_MenuControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     final string = 'firebaseUser: ${firebaseUser.toString()}';

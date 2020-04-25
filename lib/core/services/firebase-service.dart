@@ -28,4 +28,9 @@ class FirebaseService {
   Future<FirebaseUser> getCurrentUser(){
     return FirebaseAuth.instance.currentUser();
   }
+
+  Future<void> logout() async {
+    await this._googleSignIn.signOut();
+    await this._auth.signOut();
+  }
 }

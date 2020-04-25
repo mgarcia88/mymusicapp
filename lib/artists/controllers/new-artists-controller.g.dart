@@ -9,40 +9,6 @@ part of 'new-artists-controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$NewArtistsController on _NewArtistsController, Store {
-  final _$nameAtom = Atom(name: '_NewArtistsController.name');
-
-  @override
-  String get name {
-    _$nameAtom.context.enforceReadPolicy(_$nameAtom);
-    _$nameAtom.reportObserved();
-    return super.name;
-  }
-
-  @override
-  set name(String value) {
-    _$nameAtom.context.conditionallyRunInAction(() {
-      super.name = value;
-      _$nameAtom.reportChanged();
-    }, _$nameAtom, name: '${_$nameAtom.name}_set');
-  }
-
-  final _$nameIsValidAtom = Atom(name: '_NewArtistsController.nameIsValid');
-
-  @override
-  bool get nameIsValid {
-    _$nameIsValidAtom.context.enforceReadPolicy(_$nameIsValidAtom);
-    _$nameIsValidAtom.reportObserved();
-    return super.nameIsValid;
-  }
-
-  @override
-  set nameIsValid(bool value) {
-    _$nameIsValidAtom.context.conditionallyRunInAction(() {
-      super.nameIsValid = value;
-      _$nameIsValidAtom.reportChanged();
-    }, _$nameIsValidAtom, name: '${_$nameIsValidAtom.name}_set');
-  }
-
   final _$codeAtom = Atom(name: '_NewArtistsController.code');
 
   @override
@@ -81,16 +47,6 @@ mixin _$NewArtistsController on _NewArtistsController, Store {
       ActionController(name: '_NewArtistsController');
 
   @override
-  dynamic changeName(String value) {
-    final _$actionInfo = _$_NewArtistsControllerActionController.startAction();
-    try {
-      return super.changeName(value);
-    } finally {
-      _$_NewArtistsControllerActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   dynamic changeCode(String value) {
     final _$actionInfo = _$_NewArtistsControllerActionController.startAction();
     try {
@@ -103,7 +59,7 @@ mixin _$NewArtistsController on _NewArtistsController, Store {
   @override
   String toString() {
     final string =
-        'name: ${name.toString()},nameIsValid: ${nameIsValid.toString()},code: ${code.toString()},codeIsValid: ${codeIsValid.toString()}';
+        'code: ${code.toString()},codeIsValid: ${codeIsValid.toString()}';
     return '{$string}';
   }
 }
